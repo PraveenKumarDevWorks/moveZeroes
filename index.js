@@ -17,6 +17,24 @@ const nums = [0, 1, 0, 3, 12];
 moveZeroes(nums);
 console.log(nums); // Output: [1, 3, 12, 0, 0]
 
+function moveZeroesSwap(nums) {
+    let lastNonZeroIndex = 0;
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] !== 0) {
+            // Swap only if i and lastNonZeroIndex are different
+            if (i !== lastNonZeroIndex) {
+                [nums[i], nums[lastNonZeroIndex]] = [nums[lastNonZeroIndex], nums[i]];
+            }
+            lastNonZeroIndex++;
+        }
+    }
+}
+
+// Example usage:
+const nums2 = [0, 1, 0, 3, 12];
+moveZeroesSwap(nums2);
+console.log(nums2); // Output: [1, 3, 12, 0, 0]
+
 // Pattern name: Move Zeroes
 // Pattern description: Given an array, move all zeroes to the end while maintaining the order of non-zero elements.
 // Pattern difficulty: Easy
